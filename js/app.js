@@ -1,16 +1,16 @@
 
 //Create a list that holds all of your cards
-const cardList=document.querySelectorAll(".card");
+const cardList=document.querySelectorAll('.card');
 let opencards=[];
 let icons=[];
 //get a list of all stars
-const starsList=document.querySelectorAll(".fa-star");
+const starsList=document.querySelectorAll('.fa-star');
 // get the model that display the win message
-var modal = document.getElementById("myModal");
+var modal = document.getElementById('myModal');
 //get the pragraph that conatain the message
-var content =document.getElementById("content");
+var content =document.getElementById('content');
 //get the paly again button
-var btn = document.getElementById("replay");
+var btn = document.getElementById('replay');
 var count = 0, clearTime,clearintial, seconds = 0, minutes = 0, hours = 0, clearState,secs, mins, gethours;
 let counter=0,moves=0;
 
@@ -44,15 +44,15 @@ function startWatch(){
  if ( minutes === 60 ) { minutes = 0; hours = hours + 1; } 
  gethours = ( hours < 10 ) ? ( '0' + hours + ': ' ) : ( hours + ': ' ); secs = ( seconds < 10 ) ? ( '0' + seconds ) : ( seconds ); 
  // display the stopwatch 
- var timer = document .querySelector(".timer"); 
+ var timer = document .querySelector('.timer'); 
  timer.innerHTML = 'Time: ' + gethours + mins + secs; 
  /* call the seconds counter after displaying the stop watch and increment seconds by +1 to keep it counting */ 
  seconds++; 
  /* call the setTimeout( ) to keep the stop watch alive ! */
- clearTime = setTimeout( "startWatch( )", 1000 ); } 
+ clearTime = setTimeout( 'startWatch( )', 1000 ); } 
 
 // add event listener to restart button when it clicked it will refresh all things  
-document.querySelector(".restart").addEventListener("click", function(e){
+document.querySelector('.restart').addEventListener('click', function(e){
  document.location.reload(true);});
    
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -68,14 +68,14 @@ function shuffle(array) {
 
 //add event listener to all cards
 for(const card of cardList ){    
- card.addEventListener("click", function(event){ 
+ card.addEventListener('click', function(event){ 
   if(card.classList[1] !='open'){
   // when the card clicked the counter incremented to check if they ecseeds 2 times
    counter++; 
 	// increment the number of moves to display them to the user
    moves++; 
   //update the moves div
-	 document.querySelector(".moves").innerHTML=moves.toString(); 
+	 document.querySelector('.moves').innerHTML=moves.toString(); 
 	 // call the open function to update the card to open card style 
    open(card);	
    /*if the counter equals two it will rest to 0 and then the ismatched function will called if it is 
@@ -142,11 +142,11 @@ function matchedcard(){
 /* it will check if all cards are matche then will dispaly message and button
  for repaly again when the btn is clicked the game will start again*/
 function isfinished(){
- if(document.querySelectorAll(".match").length==16){
+ if(document.querySelectorAll('.match').length==16){
   clearTimeout(clearTime);
   content.innerHTML=`
-  Conguraltion! You won!with ${moves} moves and ${document.querySelectorAll(".fa-star").length} stars and ${document .querySelector(".timer").innerHTML}`;
-  modal.style.display = "flex";
+  Conguraltion! You won!with ${moves} moves and ${document.querySelectorAll('.fa-star').length} stars and ${document .querySelector('.timer').innerHTML}`;
+  modal.style.display = 'flex';
   btn.onclick = function(){
    document.location.reload();}
  }}
